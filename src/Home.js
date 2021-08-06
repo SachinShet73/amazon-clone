@@ -12,7 +12,7 @@ function Home() {
                 />
 
                 <div className="home__row">
-                    <Product />
+                    <Product title = "Because life is a gift" price = {29.99} image="https://m.media-amazon.com/images/P/B00O6CDSX4.01._SCLZZZZZZZ_SX500_.jpg" rating = {5}/>
                     <Product />
                     
                 </div>
