@@ -8,8 +8,20 @@ function App() {
     // BEM
     <Router>
       <div className="App">
+
+      <Switch>
+      <Route path = "/checkout">
+      <Header />
+      <h1>I AM A CHECKOUT PAGE</h1> 
+      </Route>  
+      
+
+      <Route path = "/">
       <Header />
       <Home />
+      </Route>  
+      </Switch> 
+      
       </div>
     </Router>
     
