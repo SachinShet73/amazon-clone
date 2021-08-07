@@ -14,7 +14,7 @@ function Checkout() {
             </img>
             <div>
                 <h2 className = "checkout__title">
-                    Your Shopping basket
+                    Your shopping basket
                 </h2>
 
                 {/*basket item*/}
