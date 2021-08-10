@@ -19,35 +19,15 @@ function Checkout() {
                 <h2 className = "checkout__title">
                     Your shopping basket
                 </h2>
-
-                
-                    
-                        <CheckoutProduct 
-                        id = {1234567891}
-                        title = "This is a test"
-                        image = "https://images-eu.ssl-images-amazon.com/images/I/41bUrjJLJyS._SX300_SY300_QL70_FMwebp_.jpg"
-                        price = {26000}
-                        rating = {5}
-                        />
-
-                        <CheckoutProduct 
-                        id = {1234567891}
-                        title = "This is a test"
-                        image = "https://images-eu.ssl-images-amazon.com/images/I/41bUrjJLJyS._SX300_SY300_QL70_FMwebp_.jpg"
-                        price = {26000}
-                        rating = {5}
-                        />
-                        
-                        
-                        
-
-                        
-
-                        
-                    
-                    
-                    
-                
+{basket.map(item => (
+    <CheckoutProduct
+    id={item.id}
+    title={item.title}
+    image={item.image}
+    price={item.price}
+    rating={item.rating}
+    />
+))} 
                 
                 {/*CheckOut Product*/}
                 {/*CheckOut Product*/}
