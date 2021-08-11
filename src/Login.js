@@ -1,7 +1,22 @@
-import React from 'react'
+import React , { useState } from 'react'
 import './Login.css'
 import { Link } from 'react-router-dom'
+
 function Login() {
+
+    const [email,setEmail] = useState('');
+    const [password,setPassword] = useState('')
+    const signIn = e =>
+    {
+                e.preventDefault();
+                //some fancy fiebase code......
+    }
+    const register = e =>
+    {
+        e.preventDefault();
+
+        //some fancy firebase signup........
+    }
     return (
         <div className = 'login'>
             <Link to = '/'>
@@ -15,13 +30,20 @@ function Login() {
            <form>
                
                <h5>E-mail</h5>
-               <input type="text"/>
+               <input type="text" value = {email} onChange =
+               {e => setEmail(e.target.value)}
+               />
 
                 <h5>Password</h5>
-                <input type="Password"/>
+                <input type="Password" value = {password}
+                value = {password} onChange =
+                {e => setPassword(e.target.value)}
+                />
 
 
-                <button className = "login__signInButton">Sign In</button>               
+                <button type = "submit"
+                onClick = {signIn}
+                className = "login__signInButton">Sign In</button>               
                </form>
                <p>
                    By signing-in you agree to AMAZON-FAKE-CLONE's Conditions of 
@@ -31,7 +53,9 @@ function Login() {
                    and our Interest-Based Ads Notice.
                </p>
 
-               <button className = "login__registerButton" >New customer? Start here.</button>
+               <button
+               onClick = {register}
+               className = "login__registerButton" >New customer? Start here.</button>
             </div>
         </div>
 
