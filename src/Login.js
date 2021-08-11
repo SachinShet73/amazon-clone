@@ -14,22 +14,24 @@ function Login() {
             <h1>Sign in</h1>
            <form>
                
-               <h5>email</h5>
+               <h5>E-mail</h5>
                <input type="text"/>
 
                 <h5>Password</h5>
                 <input type="Password"/>
 
 
-                <button>Sign In</button>               
+                <button className = "login__signInButton">Sign In</button>               
                </form>
                <p>
                    By signing-in you agree to AMAZON-FAKE-CLONE's Conditions of 
 
                    use & sale. Please see our Privacy Notice, our Cookies Notice
 
-                   and our Interesr-Based Ads Notice.
+                   and our Interest-Based Ads Notice.
                </p>
+
+               <button className = "login__registerButton" >New customer? Start here.</button>
             </div>
         </div>
 
