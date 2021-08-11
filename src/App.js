@@ -18,7 +18,7 @@ function App() {
       console.log('THE USER IS >>>', authUser);
 
       if (authUser) {
-        //if the user just logged in /the user was logged in
+        //if the user just logged in / the user was logged in
 
         dispatch({
           type: 'SET_USER',
@@ -26,7 +26,7 @@ function App() {
         })
 
       } else {
-        //the user has logged out
+        //the user is logged out
           dispatch({
           type: 'SET_USER',
           user: null

@@ -39,7 +39,7 @@ const reducer = (state,action)=> {
                  case 'SET_USER':
                      return {
                          ...state,
-                         user: null
+                         user: action.user
                      }
 
                  default:
