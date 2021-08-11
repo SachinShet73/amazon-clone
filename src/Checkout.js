@@ -5,7 +5,7 @@ import Subtotal from './Subtotal';
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './Stateprovider';
 function Checkout() {
-    const [{basket},dispatch]= useStateValue();
+    const [{basket , user},dispatch]= useStateValue();
     return (
     <div className = "checkout">
        
@@ -16,6 +16,7 @@ function Checkout() {
             alt = "">
             </img>
             <div>
+                <h3>Hello, {user ? user.email : "Guest"} </h3>
                 <h2 className = "checkout__title">
                     Your shopping basket
                 </h2>
@@ -28,11 +29,6 @@ function Checkout() {
     rating={item.rating}
     />
 ))} 
-                
-                {/*CheckOut Product*/}
-                {/*CheckOut Product*/}
-                {/*CheckOut Product*/}
-                {/*CheckOut Product*/}
             </div>
         </div>
         <div className ="checkout__right">
