@@ -10,7 +10,7 @@ function Login() {
     const signIn = e =>
     {
                 e.preventDefault();
-                //some fancy fiebase code......
+              
 
 
 
@@ -24,7 +24,7 @@ function Login() {
     {
         e.preventDefault();
 
-        //some fancy firebase signup........
+    
 
         auth.createUserWithEmailAndPassword(email,password)
         .then((auth) => {
