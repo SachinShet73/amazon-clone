@@ -4,6 +4,7 @@ import './Subtotal.js'
 import Subtotal from './Subtotal';
 import CheckoutProduct from './CheckoutProduct';
 import { useStateValue } from './Stateprovider';
+import FlipMove from 'react-flip-move';
 function Checkout() {
     const [{basket , user},dispatch]= useStateValue();
     return (
