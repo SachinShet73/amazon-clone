@@ -9,10 +9,10 @@ import { useStateValue } from './Stateprovider';
 import Payment from "./Payment"
 import {loadStripe} from "@stripe/stripe-js";
 import { Elements} from "@stripe/react-stripe-js"
-
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 const promise = loadStripe('pk_test_51JOjzLSGxTQrEUyuHAvjsIuDotb3XFNjlwvxY4EUIB0omsdt0V1L3MS9fEvUqpA1veqgns3A7RZHAz20V2t7pbFG00OyTUN1BV'); 
 
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+
 function App() {
   const [{},dispatch] = useStateValue();
 
@@ -62,10 +62,9 @@ function App() {
 
       <Route path = "/payment">
       <Header />
-      < Payment/>
-      
-      <payment/>
-     
+        <Elements stripe = {promise}>
+        <Payment/>
+        </Elements>
       </Route>
       
 

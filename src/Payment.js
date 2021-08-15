@@ -1,18 +1,39 @@
-import { ListItemAvatar } from '@material-ui/core';
-import React from 'react'
+
+
+import React, { useState } from 'react'
 import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
 import { useStateValue } from './Stateprovider'
-import  {Link}  from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import CurrencyFormat from "react-currency-format";
+import { getBasketTotal } from './Reducer';
 
 function
     Payment() {
     const [{ basket, user }, dispatch] = useStateValue();
+
+    const stripe = useStripe();
+    const elements = useElements();
+
+    const [error, setError] = useState(null);
+    const [disabled, setDisabled] = useState(true);
+
+
+    const handleSubmit = e => {
+        //all the stripe magic goes here
+    }
+    const handleChange = event => {
+        setDisabled(event.empty);
+        setError(event.errror ? event.error.message : "");
+    }
+
+
     return (
         <div className='payment'>
             <div className='payment__container'>
                 <h1>
-                    Checkout (<Link to ='/checkout'>{basket?.length} items</Link>)
+                    Checkout (<Link to='/checkout'>{basket?.length} items</Link>)
                 </h1>
 
                 {/*Payment section - delivery address*/}
@@ -56,7 +77,25 @@ function
                     </div>
 
                     <div className="payment__details">
-                        <h3> stripe magic</h3>
+
+                        <form onSubmit={handleSubmit}>
+                            <CardElement onChange={handleChange} />
+
+                            <div className='payment__priceContainer'>
+                                <CurrencyFormat renderText={(value) => (
+                                    <h3>Order Total: {value} </h3>
+                                )}
+                                    decimalScale={2}
+                                    value={getBasketTotal(basket)}
+                                    displayType={"text"}
+                                    thousandSeparator={true}
+                                    prefix={"₹"}
+                                />
+                                <button>disabled ={processing || disabled || succeeded}</button>
+                                <span>{processing ? <p>Processing</p> :
+                                    "Buy Now"}</span>
+                            </div>
+                        </form>
                     </div>
 
 
