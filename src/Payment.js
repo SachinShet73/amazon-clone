@@ -15,9 +15,11 @@ function
 
     const stripe = useStripe();
     const elements = useElements();
-
+    
+    const [succeeded, setSucceeded ] = useState(false);
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
+    const [processing,setProcessing] = useState("");
 
 
     const handleSubmit = e => {
@@ -91,9 +93,11 @@ function
                                     thousandSeparator={true}
                                     prefix={"₹"}
                                 />
-                                <button>disabled ={processing || disabled || succeeded}</button>
+                                <button disabled = {processing || disabled || succeeded}>
                                 <span>{processing ? <p>Processing</p> :
                                     "Buy Now"}</span>
+                                </button>
+                                
                             </div>
                         </form>
                     </div>
