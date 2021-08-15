@@ -14,7 +14,7 @@
 }
 
 
-.payment__container . h1 a {
+.payment__container > h1 a{
     text-decoration: none;
       
 }
@@ -30,6 +30,6 @@
     flex: 0.2;
 }
 
-.payment__address{
+.payment__address , .payment__items{
     flex:0.8;
 }
