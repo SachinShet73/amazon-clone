@@ -25,7 +25,8 @@ function Checkout() {
 
                       
 
-                            {basket.map(item => (
+                            {
+                            basket.map(item => (
                                 <CheckoutProduct
                                     id={item.id}
                                     title={item.title}
