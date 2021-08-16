@@ -15,15 +15,32 @@ function
 
     const stripe = useStripe();
     const elements = useElements();
-    
-    const [succeeded, setSucceeded ] = useState(false);
+
+    const [succeeded, setSucceeded] = useState(false);
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [processing,setProcessing] = useState("");
+    const [processing, setProcessing] = useState("");
+    const [clientSecret, setClientSecret] = useState(true);
 
 
-    const handleSubmit = e => {
+    useEffect(() => {
+        //generate the special stripe secret which allows us to charge a customer
+
+        const getClientSecret = async () => {
+            const response = await axios({
+                method: 'post',
+                url: '/payments/create?total=₹{getBasketTotal(basket) }'
+            })
+        }
+
+    }, [basket])
+
+    const handleSubmit = async (event) => {
         //all the stripe magic goes here
+        event.preventDefault();
+        setProcessing(true);
+
+        //const payload = await stripe 
     }
     const handleChange = event => {
         setDisabled(event.empty);
@@ -93,12 +110,13 @@ function
                                     thousandSeparator={true}
                                     prefix={"₹"}
                                 />
-                                <button disabled = {processing || disabled || succeeded}>
-                                <span>{processing ? <p>Processing</p> :
-                                    "Buy Now"}</span>
+                                <button disabled={processing || disabled || succeeded}>
+                                    <span>{processing ? <p>Processing</p> :
+                                        "Buy Now"}</span>
                                 </button>
-                                
                             </div>
+
+                            {error && <div>{error}</div>}
                         </form>
                     </div>
 

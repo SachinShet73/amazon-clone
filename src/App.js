@@ -1,20 +1,20 @@
-import React , {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './Header';
 import Home from './Home';
 import Checkout from './Checkout';
 import Login from './Login';
-import {auth} from "./firebase"
+import { auth } from "./firebase"
 import { useStateValue } from './Stateprovider';
 import Payment from "./Payment"
-import {loadStripe} from "@stripe/stripe-js";
-import { Elements} from "@stripe/react-stripe-js"
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-const promise = loadStripe('pk_test_51JOjzLSGxTQrEUyuHAvjsIuDotb3XFNjlwvxY4EUIB0omsdt0V1L3MS9fEvUqpA1veqgns3A7RZHAz20V2t7pbFG00OyTUN1BV'); 
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+const promise = loadStripe('pk_test_51JOjzLSGxTQrEUyuHAvjsIuDotb3XFNjlwvxY4EUIB0omsdt0V1L3MS9fEvUqpA1veqgns3A7RZHAz20V2t7pbFG00OyTUN1BV');
 
 
 function App() {
-  const [{},dispatch] = useStateValue();
+  const [{ }, dispatch] = useStateValue();
 
   useEffect(() => {
     // will only run when the app component loads...
@@ -32,7 +32,7 @@ function App() {
 
       } else {
         //the user is logged out
-          dispatch({
+        dispatch({
           type: 'SET_USER',
           user: null
         })
@@ -45,38 +45,38 @@ function App() {
     // BEM
     <Router>
       <div className="App">
-      
-      
-      <Switch>
 
-       <Route path = "/login">
-         
 
-         <Login />
-         </Route> 
-      <Route path = "/checkout">
-      <Header />
-      <Checkout/>
-     
-      </Route>  
+        <Switch>
 
-      <Route path = "/payment">
-      <Header />
-        <Elements stripe = {promise}>
-        <Payment/>
-        </Elements>
-      </Route>
-      
+          <Route path="/login">
 
-      <Route path = "/">
-         <Header />    
-      <Home />
-      </Route>  
-      </Switch> 
+
+            <Login />
+          </Route>
+          <Route path="/checkout">
+            <Header />
+            <Checkout />
+
+          </Route>
+
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
+          </Route>
+
+
+          <Route path="/">
+            <Header />
+            <Home />
+          </Route>
+        </Switch>
 
       </div>
     </Router>
-    
+
   );
 }
 
