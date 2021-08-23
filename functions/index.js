@@ -16,6 +16,11 @@ app.use(express.json())
 
 //API routes
 app.get('/',(request , response) => response.status(200).send('HELLO WORLD'))
+app.get('/sachi',(request , response) => response.status(200).send('Hi Sachin'))
+
 //-Listen Command
 
 exports.api = functions.https.onRequest(app)
+
+//api http://localhost:5001/clone-fbbc0/us-central1/api
+// Example endpoint
