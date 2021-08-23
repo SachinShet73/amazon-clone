@@ -16,7 +16,14 @@ app.use(express.json())
 
 //API routes
 app.get('/',(request , response) => response.status(200).send('HELLO WORLD'))
-app.get('/sachi',(request , response) => response.status(200).send('Hi Sachin'))
+
+
+app.post('/payments/create', async (request,response) =>
+{
+    const total = request.query.total;
+
+    console.log('Payment Request Received for this amount >>> ',total)
+})
 
 //-Listen Command
 
