@@ -5,7 +5,6 @@ import CheckoutProduct from './CheckoutProduct';
 import './Payment.css'
 import { useStateValue } from './Stateprovider'
 import { Link , useHistory} from 'react-router-dom';
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from './Reducer';
 import axios from './axios'
@@ -35,6 +34,8 @@ function
         }
         getClientSecret();
     }, [basket])
+
+    console.log('The secret is >>>> ', clientSecret)
 
     const handleSubmit = async (event) => {
         //all the stripe magic goes here
